@@ -6,7 +6,6 @@ public class AI_Minimax implements AI {
      */
     static int depthLimit = 1;
     static int depth = 0;
-    
     @Override
     public int decideTurn(Board board) {
         
