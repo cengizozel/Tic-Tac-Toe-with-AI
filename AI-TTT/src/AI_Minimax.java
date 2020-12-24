@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class AI_Minimax implements AI {
-    /*
-    The Minimax algorithm allows the AI to find the best move using alpha-beta-pruning method and returns a heuristic value.
-     */
+    
+    // The Minimax algorithm allows the AI to find the best move using alpha-beta-pruning method and returns a heuristic value.
+    
     static int depthLimit = 1;
     static int depth = 0;
     @Override
