@@ -1,4 +1,6 @@
 import java.awt.CardLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -17,6 +19,9 @@ public class MainMenu extends JFrame {
 	static int height = 850;
 	
 	MainMenu() {
+		Icon icon = new ImageIcon("icon.PNG");
+		this.setIconImage(((ImageIcon) icon).getImage());
+		
 		this.setSize(width,height);
 		this.setResizable(false);
 		this.setTitle("Tic-Tac-Toe");
