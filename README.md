@@ -1,6 +1,6 @@
 # Tic-Tac-Toe with AI
 
-A GUI Tic-Tac-Toe game that uses the Minimax algorithm which allows the AI to find the best move using the alpha-beta-pruning method and returns a heuristic value.
+A GUI Tic Tac Toe game that uses the Minimax algorithm which allows the AI to find the best move using the alpha-beta-pruning method and returns a heuristic value.
 
 ## Demo
 
@@ -26,4 +26,44 @@ The difficulties are:
 **Impossible:** 100% chance of making a perfect move.  
 
 ## Minimax Algorithm
-Tic Tac Toe is a zero-sum game which means the gain or loss of each player is balanced with the loss or gain (respectively) of the other. This project uses a recursive algorithm
+Tic Tac Toe is a zero-sum game which means the gain or loss of each player is balanced with the loss or gain (respectively) of the other. This project uses a recursive algorithm in order to choose the next move of the next player after giving a numeric value to the ending of each potential game.
+
+```java
+public int minimax(Board board, int depth, int alpha, int beta, boolean maxPlayer) {
+        if(depth == 0 || board.isTerminal()) {
+            return board.scoreBoard();
+        }
+        if(maxPlayer) { // Max Player
+           int val = Integer.MIN_VALUE;
+           ArrayList<Integer> pactions = board.possibleActions();
+           for(int i = 0; i < pactions.size(); i ++) {
+               Board cb = Board.copyBoard(board);
+               cb = Board.playHere(cb, pactions.get(i));
+
+               val = Math.max(val, minimax(cb, depth -1, alpha, beta, false));
+               alpha = Math.max(alpha, val);
+               if(alpha >= beta) {
+                   break;
+               }
+           }
+           return val;
+        }
+        else { // Min Player
+            int val = Integer.MAX_VALUE;
+            ArrayList<Integer> pactions = board.possibleActions();
+            for(int i = 0; i < pactions.size(); i ++) {
+                Board cb = Board.copyBoard(board);
+                cb = Board.playHere(cb, pactions.get(i));
+
+                val = Math.min(val, minimax(cb, depth -1, alpha, beta, true));
+                beta = Math.min(beta, val);
+                if(alpha >= beta) {
+                    break;
+                }
+            }
+            return val;
+        }
+    }
+```
+
+Depending of what player the AI is, its goal is to either minimize or maximize the score. This is accomplished with the help of the Alpha-beta pruning algorithm which significantly reduces the number of score comparisons needed to decide the next move.
