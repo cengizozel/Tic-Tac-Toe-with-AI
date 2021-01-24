@@ -4,9 +4,7 @@ A GUI Tic Tac Toe game that uses the Minimax algorithm which allows the AI to fi
 
 ## Demo
 
-![demo](https://user-images.githubusercontent.com/60388555/103140236-47f08480-46b2-11eb-863c-4c8dbaa6e175.gif)
-
-![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/60388555/105646663-16183c80-5e6f-11eb-9e4d-8c3cf4bafc0c.gif)
+![demo](https://user-images.githubusercontent.com/60388555/105646663-16183c80-5e6f-11eb-9e4d-8c3cf4bafc0c.gif)
 
 ## Installation
 
